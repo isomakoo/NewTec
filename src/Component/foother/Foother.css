@@ -1,0 +1,68 @@
+/* Footer container styling */
+footer {
+    background-color: #333; /* Dark background for contrast */
+    color: #fff; /* White text for readability */
+    padding: 20px 0; /* Vertical padding for spacing */
+    text-align: center; /* Center align text */
+    position: relative; /* To ensure proper positioning of content */
+    bottom: 0; /* Stick to the bottom of the viewport */
+    width: 100%; /* Full width */
+  }
+  .foother-list{
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .foother-navbar{
+    margin: 0 auto;
+    background-color: #111;
+  }
+  .foother-item-texts{
+    color:  #FFFFFF;
+  }
+  /* Container within the footer */
+  footer .container {
+    max-width: 1200px; /* Limit container width */
+    margin: 0 auto ; /* Center align container */
+    padding: 0 15px; /* Horizontal padding */
+  }
+  
+  /* Footer text styling */
+  footer p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px; /* Adjust font size */
+  }
+  
+  /* Social media links styling */
+  footer .social-media {
+    margin-top: 10px; /* Space between text and social media links */
+  }
+  
+  footer .social-media a {
+    color: #fff; /* White color for links */
+    margin: 0 10px; /* Horizontal spacing between links */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 14px; /* Font size for links */
+  }
+  
+  footer .social-media a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  .foother-title{
+    color: #FFFFFF;
+    font-weight: 800;
+    margin: 0 !important;
+    font-size: 36px;
+    padding-top:  30px;
+  }
+  .foother-item-title{
+    color: #FFFFFF;
+    width: 300px;
+  }
+  .foother-link
+  {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 24px;
+  }

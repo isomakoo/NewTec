@@ -1,0 +1,113 @@
+/* Bosh sahifa umumiy dizayn */
+.main {
+    background-color: #f5f5f5;
+    padding: 60px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    width: 85%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    color: #e57f34; /* Sariq rang hero bilan uyg'unlikda */
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Navbar ro'yxati uchun */
+.main-navbar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Har bir element */
+.main-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    border: transparent; /* Hero tugmalari rangiga mos bordur */
+}
+
+.main-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    background-color: #fff0e6; /* Hover paytida fon rangi o'zgaradi */
+}
+
+.main-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* Har bir elementning sarlavhasi */
+.main-item-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+/* Har bir elementning matni */
+.main-item-text {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.main-item-text:hover {
+    color: #e57f34; /* Matn rangini hero dizayniga mos hoverda o'zgarishi */
+}
+
+/* Iko'ni uchun */
+.main-icon {
+    width: 200px;
+    height: 100px;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .main {
+        padding: 40px 0;
+    }
+
+    .main-title {
+        font-size: 32px;
+    }
+
+    .main-item {
+        padding: 15px;
+    }
+
+    .main-item-title {
+        font-size: 20px;
+    }
+
+    .main-item-text {
+        font-size: 14px;
+    }
+
+    .main-icon {
+        width: 150px;
+        height: 80px;
+    }
+}

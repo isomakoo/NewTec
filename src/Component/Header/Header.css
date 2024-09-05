@@ -1,0 +1,68 @@
+.hero-section {
+    background-color: #111 !important;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero-content {
+    margin-bottom: 50px;
+  }
+  
+  .hero-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 3px solid yellow;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: rotate 2s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  h1 {
+    font-size: 36px;
+    line-height: 1.5;
+  }
+  
+  .highlight {
+    color: #e57f34;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .stat-item {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stat-item h2 {
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  .stat-item p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #888;
+  }
+  

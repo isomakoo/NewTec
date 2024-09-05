@@ -1,0 +1,157 @@
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+.hero-list {
+  display: flex;
+  gap: 0px;
+  opacity: 0px;
+  box-shadow: 0px 2px 16px -5px #00000026;
+  height: 80px;
+  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
+}
+.hero-logo {
+  width: 150px;
+}
+.hero-navbar {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+.hero-link {
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19.07px;
+  text-align: left;
+  color: #1b2332;
+}
+.hero-btn {
+  width: 116px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  top: 36px;
+  left: 1205px;
+  gap: 0px;
+  border-radius: 8px;
+  opacity: 0px;
+  color: #e57f34;
+  border: 1px solid #e57f34;
+}
+#my-element {
+    font-size: 68px;
+    width: 650px;
+    height: 500px;
+    display: inline-block;
+    line-height: 78px;
+    margin-top: 20px !important;
+    font-weight: 800;
+    color: #e57f34;
+  }
+  .hero-box{
+    display: flex;
+    justify-content: space-around;
+  }
+  .hero-img{
+    width: 650px;
+    margin-top: 80px;
+    height: 550px;
+  }
+  .hero-images{
+    position: relative;
+  }
+  .hero-icons{
+    position: absolute;
+    top: 10px;
+    height: 620px;
+    left: 120px;
+  }
+  .hero-boxses{
+    height: 470px;
+  }
+   .hero-lnk-btn, .hero-fac-btn, .hero-imst-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    height: 50px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero-btnes {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(45deg, #FF6A00, #FFD500); /* To'q sariqdan sariqqa o'tuvchi gradient */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    height: 50px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .hero-btnes::after {
+    content: '→'; /* O'ng tomondagi strelka */
+    display: inline-block;
+    background-color: #FFD500; /* Sariq rang */
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  
+  .hero-btnes:hover {
+    background: linear-gradient(45deg, #FF7A00, #FFDD33); /* Hoverda biroz quyuqroq gradient */
+  }
+  
+  .hero-lnk-btn {
+    background-color: #0077B5; /* LinkedIn rang */
+  }
+  
+  .hero-lnk-btn:hover {
+    background-color: #005582; /* Hoverda quyuqroq LinkedIn */
+  }
+  
+  .hero-fac-btn {
+    background-color: #3b5998; /* Facebook rang */
+  }
+  
+  .hero-fac-btn:hover {
+    background-color: #2d4373; /* Hoverda quyuqroq Facebook */
+  }
+  
+  .hero-imst-btn {
+    background-color: #C13584; /* Instagram rang */
+  }
+  
+  .hero-imst-btn:hover {
+    background-color: #8e2a5a; /* Hoverda quyuqroq Instagram */
+  }
+  
+  .hero-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  
+  
