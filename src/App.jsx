@@ -7,7 +7,6 @@ import Testimonials from './Component/Sidebar/Sidebar';
 import FAQ from './Component/faq/faq';
 import ContactForm from './Component/contact/contacs';
 import HomePage from './Component/Homepage/Homepage';
-import Foother from './Component/foother/foother';
 function App() {
   return (
     <div className="App">
@@ -19,7 +18,7 @@ function App() {
         <Testimonials></Testimonials>
         <FAQ></FAQ>
         <ContactForm></ContactForm>
-       <Foother></Foother>
+         
     </div>
   );
 }
