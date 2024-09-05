@@ -6,8 +6,8 @@ import Main from './Component/Main/Main';
 import Testimonials from './Component/Sidebar/Sidebar';
 import FAQ from './Component/faq/faq';
 import ContactForm from './Component/contact/contacs';
-import Footer from './Component/foother/foother';
 import HomePage from './Component/Homepage/Homepage';
+import Foother from './Component/foother/foother';
 function App() {
   return (
     <div className="App">
@@ -19,7 +19,7 @@ function App() {
         <Testimonials></Testimonials>
         <FAQ></FAQ>
         <ContactForm></ContactForm>
-        <Footer></Footer>
+       <Foother></Foother>
     </div>
   );
 }
