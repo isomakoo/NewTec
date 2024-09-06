@@ -3,10 +3,11 @@ import './Sidebar.css';
 import uzb from '../../assets/itichnik.jpg';
 import rus from '../../assets/brov.png';
 import { Modal, Button, Input, Select } from 'antd';
+import { motion } from 'framer-motion'; // Framer Motion import qilinadi
 
 const { Option } = Select;
 
-// Replace these constants with your actual Telegram Bot Token and Chat ID
+// Telegram Bot Token va Chat ID ni xavfsiz saqlash uchun .env faylidan foydalaning
 const TELEGRAM_BOT_TOKEN = '7079304090:AAHz0hdemV3kKxzSiksKthyugnQ3oGpBadU';
 const CHAT_ID = '6914657739';
 
@@ -59,7 +60,7 @@ function Testimonials() {
     
     await sendMessageToTelegram(message);
 
-    // Clear input fields
+    // Input maydonlarini tozalash
     setName('');
     setPhoneNumber('');
     setWebsitePurpose('');
@@ -69,30 +70,107 @@ function Testimonials() {
     alert('Xabaringiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog\'lanamiz.');
   };
 
+  // Animatsiya variantlari
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.3,
+      }
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: 'easeOut' },
+    },
+    hover: {
+      scale: 1.05,
+      boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)',
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      backgroundColor: '#1b2332',
+      color: '#fff',
+      transition: { duration: 0.3 },
+    },
+    tap: {
+      scale: 0.95,
+    },
+  };
+
   return (
-    <section className="testimonials">
+    <motion.section 
+      className="testimonials"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="container">
-        <h3>Mijozlarimiz Fikri</h3>
-        <div className="testimonial-wrapper">
-          <div className="testimonial-item">
-            <img src={uzb} alt="O'zbekistan Mijoz" className="testimonial-image" />
-            <div className="testimonial-content">
-              <p>NewTec bilan hamkorlik qilish juda oson va qulay!</p>
-              <span>- O'zbekistan Mijoz</span> <br />
-              <b className="sidebar-text">Biz bilan hamkorlikni boshlash</b> <br />
-              <button className="hero-btnes" onClick={showWebsiteModal}>Murojat Qilish</button> 
-            </div>
-          </div>
-          <div className="testimonial-item">
-            <img src={rus} alt="Rossiya Mijoz" className="testimonial-image" />
-            <div className="testimonial-content">
-              <p>Xizmatlari yuqori sifatda va doimiy qo'llab-quvvatlashni ta'minlashadi.</p>
-              <span>- Rossiya Mijoz</span> <br />
-              <b className='sidebar-text'>Biz bilan hamkorlikni boshlash</b> <br />
-              <button className="hero-btnes" onClick={showWebsiteModal}>Murojat Qilish</button> 
-            </div>
-          </div>
-        </div>
+        <motion.h3 
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Mijozlarimiz Fikri
+        </motion.h3>
+        <motion.div 
+          className="testimonial-wrapper"
+          variants={containerVariants}
+        >
+          {[
+            {
+              img: uzb, 
+              alt: "O'zbekistan Mijoz", 
+              text: "NewTec bilan hamkorlik qilish juda oson va qulay!", 
+              name: "O'zbekistan Mijoz"
+            },
+            {
+              img: rus, 
+              alt: "Rossiya Mijoz", 
+              text: "Xizmatlari yuqori sifatda va doimiy qo'llab-quvvatlashni ta'minlashadi.", 
+              name: "Rossiya Mijoz"
+            },
+          ].map((testimonial, index) => (
+            <motion.div 
+              className="testimonial-item" 
+              key={index}
+              variants={itemVariants}
+              whileHover="hover"
+            >
+              <motion.img 
+                src={testimonial.img} 
+                alt={testimonial.alt} 
+                className="testimonial-image"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              />
+              <div className="testimonial-content">
+                <p>{testimonial.text}</p>
+                <span>- {testimonial.name}</span> <br />
+                <b className="sidebar-text">Biz bilan hamkorlikni boshlash</b> <br />
+                <motion.button 
+                  className="hero-btnes" 
+                  onClick={showWebsiteModal}
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  Murojat Qilish
+                </motion.button> 
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
       
       {/* Sayt yaratish uchun modal */}
@@ -141,7 +219,7 @@ function Testimonials() {
           </Select>
         </div>
       </Modal>
-    </section>
+    </motion.section>
   );
 }
 

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Header.css';
+import { motion } from 'framer-motion'; // Framer Motion import qilinadi
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // AOS styles
 
 const StatItem = ({ value, label }) => {
   const [count, setCount] = useState(0);
@@ -23,27 +26,61 @@ const StatItem = ({ value, label }) => {
   }, [value]);
 
   return (
-    <div className="stat-item">
+    <motion.div 
+      className="stat-item"
+      initial={{ opacity: 0, y: 50 }} // Boshlanish animatsiyasi
+      animate={{ opacity: 1, y: 0 }} // Ko'tarilish animatsiyasi
+      transition={{ duration: 0.8 }} // Har bir animatsiya 0.8 soniyada bajariladi
+      data-aos="fade-up" // AOS animation type
+    >
       <h2>{count}</h2>
       <p>{label}</p>
-    </div>
+    </motion.div>
   );
 };
 
 const Header = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // AOS animation duration
+      easing: 'ease-in-out',
+      once: true, // Animation only happens once
+    });
+  }, []);
+
   return (
     <section className="hero-section">
-      <div className="hero-content">
-        <h1>Experiences Fueled by <span className="highlight">Passion</span> and <span className="highlight">Expertise</span></h1>
-        <p>At our core, we’re more than just a creative agency – we’re a dynamic team of storytellers, strategists, and tech enthusiasts.</p>
+      <div className="hero-content" data-aos="fade-right">
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        >
+          Experiences Fueled by <span className="highlight">Passion</span> and <span className="highlight">Expertise</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        >
+          At our core, we’re more than just a creative agency – we’re a dynamic team of storytellers, strategists, and tech enthusiasts.
+        </motion.p>
       </div>
 
-      <div className="stats">
+      <motion.div
+        className="stats"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
+        }}
+      >
         <StatItem value={25} label="Years Of Experience" />
         <StatItem value={250} label="Project Complete" />
         <StatItem value={100} label="Happy Client" />
         <StatItem value={35} label="Wining Awards" />
-      </div>
+      </motion.div>
     </section>
   );
 };

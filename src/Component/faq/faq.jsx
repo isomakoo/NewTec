@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Input, Select } from 'antd';
 import axios from 'axios';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import AOS styles
 import './faq.css';
 
 const { Option } = Select;
@@ -15,6 +17,14 @@ const FAQ = () => {
   const [selectedPlan, setSelectedPlan] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [websitePurpose, setWebsitePurpose] = useState('');
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true, // Animation happens only once
+    });
+  }, []);
 
   const questions = [
     { 
@@ -102,21 +112,21 @@ const FAQ = () => {
   };
 
   return (
-    <div className="faq-container">
+    <div className="faq-container" data-aos="fade-up">
       <h3>Tez-tez so'raladigan savollar</h3>
       <ul className="faq-list">
         {questions.map((item, index) => (
-          <li key={index} className="faq-item">
+          <li key={index} className="faq-item" data-aos="fade-up" data-aos-delay={index * 100}>
             <div className="faq-question" onClick={() => handleToggle(index)}>
               {item.question}
               <span className={`faq-toggle ${activeIndex === index ? 'open' : ''}`}>+</span>
             </div>
             {activeIndex === index && (
-              <div className="faq-answer">
+              <div className="faq-answer" data-aos="fade-in">
                 <p>{item.answer}</p>
                 <p className="action-text">{item.action}</p>
                 <button
-                  className="cta-buttona"
+                  className="cta-button"
                   onClick={() => showModal(item.modalType)}
                 >
                   Bog'lanish
@@ -140,6 +150,7 @@ const FAQ = () => {
             Yuborish
           </Button>,
         ]}
+        data-aos="zoom-in"
       >
         <div>
           <label>Ismingiz:</label>
@@ -185,6 +196,7 @@ const FAQ = () => {
             Yuborish
           </Button>,
         ]}
+        data-aos="zoom-in"
       >
         <div>
           <label>Ismingiz:</label>
@@ -229,6 +241,7 @@ const FAQ = () => {
             Bekor qilish
           </Button>,
         ]}
+        data-aos="zoom-in"
       >
         <p>Texnik yordam 24/7 uchun bizning telefon raqamimiz:</p>
         <p>

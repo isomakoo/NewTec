@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ContactForm.css'; // Stil faylini chaqiradi
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // AOS styles
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +9,14 @@ const ContactForm = () => {
     phone: '',
     question: '',
   });
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,11 +58,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="contact-form-container">
-      <div className="contact-form">
-        <h3>Savollaringizni yuboring</h3>
-        <form onSubmit={handleSubmit}>
-          <label>
+    <div className="contact-form-container" data-aos="fade-up">
+      <div className="contact-form" data-aos="zoom-in">
+        <h3 data-aos="fade-down">Savollaringizni yuboring</h3>
+        <form onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="200">
+          <label data-aos="fade-left">
             Ism:
             <input
               type="text"
@@ -61,9 +71,10 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
+              data-aos="fade-right"
             />
           </label>
-          <label>
+          <label data-aos="fade-left" data-aos-delay="300">
             Telefon raqam:
             <input
               type="tel"
@@ -72,9 +83,10 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
+              data-aos="fade-right"
             />
           </label>
-          <label>
+          <label data-aos="fade-left" data-aos-delay="400">
             Savolingiz:
             <textarea
               name="question"
@@ -82,9 +94,17 @@ const ContactForm = () => {
               value={formData.question}
               onChange={handleChange}
               required
+              data-aos="fade-right"
             ></textarea>
           </label>
-          <button type="submit" className="submit-button">Yuborish</button>
+          <button
+            type="submit"
+            className="submit-button"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            Yuborish
+          </button>
         </form>
       </div>
     </div>

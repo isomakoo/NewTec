@@ -152,6 +152,136 @@
     align-items: center;
     margin-top: 20px;
   }
+  @media (max-width: 1400px) {
+    .hero-list{
+      max-width: 100%;
+    }
+    .hero-navbar{
+      width: 50%;
+    }
+    .hero-images{
+      width: 50%;
+    }
+    .hero-box{
+      max-width: 100%;
+    }
+    .hero-boxses{
+      height: auto;
+    }
+    .hero-bex{
+      width: 50%;
+      height: 600px;
+    }
+    .hero-icons{
+      width: 80% !important;
+      left: 60px;
+    }
+    #my-element{
+      font-size: 48px;
+      height: 500px;
+      margin-bottom: 0 !important;
+      padding-top: 30px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 1300px) {
+  .hero-img{
+    width: 100%;
+  }
+  .hero-icons{
+    width: 100%;
+  }
+  }
+  @media (max-width: 850px) {
+    .hero-box{
+      width: 100%;
+      flex-direction: column-reverse;
+    }
+    .hero-bex{
+      width: 100%;
+      height: auto;
+      text-align: center;
+    }
+    #my-element{
+      max-width: 100%;
+      height: auto;
+    }
+    .hero-boxses{
+      height: 370px;
+      width: 90%;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .hero-img{
+      width: 100%;
+    }
+    .hero-images{
+      width: 100%;
+    }
+    .hero-icons{
+      width: 90%;
+    }
+  }
+  @media (max-width: 650px) {
+   .hero-img{
+    height: 350px;
+   }
+   .hero-boxses{
+    height: 320px;
+   }
+   #my-element{
+    height: auto;
+    line-height: 50px;
+    font-size: 44px;
+   }
+   .hero-bex{
+    height: auto;
+   }
+   .hero-btn{
+    display: none;
+   }
+   .hero-navbar{
+    display: none;
+   }
+   .hero-icons{
+    height: 97%;
+   }
+  }
+  @media (max-width: 450px) {
+  #my-element{
+    line-height: 40px;
+    font-size: 34px;
+    height: auto;
+  }
+  .hero-img{
+    height: 250px;
+  }
+  .hero-icons{
+    left: 30px;
+  }
+  }
+  @media (max-width: 900px) {
+
+  }
+  @media (max-width: 800px) {
+
+  }
+  @media (max-width: 700px) {
+
+  }
+  @media (max-width: 600px) {
+
+  }
+  @media (max-width: 500px) {
+
+  }
+  @media (max-width: 400px) {
+
+  }
+  @media (max-width: 300px) {
+
+  }
+
   
   
   

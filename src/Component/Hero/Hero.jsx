@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Hero.css';
+import { motion } from 'framer-motion'; // Framer Motion kutubxonasini import qilish
 import logo1 from '../../assets/Frame 2.png';
 import { CiLinkedin } from "react-icons/ci";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import yellov from '../../assets/yellov.png';
 import e from '../../assets/e.png';
 import Typed from 'typed.js';
-import { Modal, Button, Input, Select } from 'antd'; // Modal va boshqa komponentlar
-import axios from 'axios'; // Axios kutubxonasini import qilish
+import { Modal, Button, Input, Select } from 'antd';
+import axios from 'axios';
 
 const { Option } = Select;
 
@@ -35,7 +36,6 @@ function Hero() {
     };
   }, []);
 
-  // Modal ochish va yopish funksiyalari
   const showWebsiteModal = () => {
     setIsWebsiteModalVisible(true);
   };
@@ -45,8 +45,8 @@ function Hero() {
   };
 
   const handleSubmitWebsite = async () => {
-    const token = 'BOT_TOKEN'; // O'zingizning bot tokeningizni kiriting
-    const chatId = 'CHAT_ID'; // O'zingizning chat IDingizni kiriting
+    const token = '7079304090:AAHz0hdemV3kKxzSiksKthyugnQ3oGpBadU';
+    const chatId = '6914657739';
 
     const message = `Yangi sayt so'rovi:\nIsm: ${name}\nTelefon: ${phoneNumber}\nSayt maqsadi: ${websitePurpose}`;
 
@@ -56,8 +56,8 @@ function Hero() {
         text: message,
       });
       alert('Ma\'lumot yuborildi!');
-      setIsWebsiteModalVisible(false); // Modalni yopish
-      setName(''); // Inputlarni tozalash
+      setIsWebsiteModalVisible(false);
+      setName('');
       setPhoneNumber('');
       setWebsitePurpose('');
     } catch (error) {
@@ -67,7 +67,12 @@ function Hero() {
   };
 
   return (
-    <div className="hero">
+    <motion.div 
+      className="hero"
+      initial={{ opacity: 0, y: -50 }} // Yengil boshlang'ich holat
+      animate={{ opacity: 1, y: 0 }} // Animatsiyani amalga oshirish
+      transition={{ duration: 1.2 }} // 1.2 sekund davomida animatsiya bajariladi
+    >
       <div className="container">
         <div className="hero-list">
           <img src={logo1} alt="Logo" className="hero-logo" />
@@ -85,16 +90,29 @@ function Hero() {
               <a href="#" className="hero-link">Блог</a>
             </li>
           </ul>
-          <button className="hero-btn">Bog'lanish</button>
+          <motion.button 
+            className="hero-btn" 
+            whileHover={{ scale: 1.1 }} // Hover qilganda kattalashish
+            whileTap={{ scale: 0.9 }} // Bosilganda kichrayish
+          >
+            Bog'lanish
+          </motion.button>
         </div>
         <div className="hero-box">
-          <nav>
+          <nav className='hero-bex'>
             <nav className='hero-boxses'>
               <h1 id="my-element">
                 STAR<span style={{color: '#1b2332'}}>NEWTEC-</span> <span ref={typedElement} style={{color: '#1b2332', width: 450, height: 500}}></span>
               </h1> 
             </nav>
-            <button className="hero-btnes" onClick={showWebsiteModal}>Murojat Qilish</button> 
+            <motion.button 
+              className="hero-btnes" 
+              onClick={showWebsiteModal}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Murojat Qilish
+            </motion.button>
             <a href="https://www.linkedin.com/in/isomiddin-qurbonov-662537304/" target="_blank" rel="noopener noreferrer" className='hero-lnk-btn'>
               <CiLinkedin />
             </a>
@@ -105,10 +123,15 @@ function Hero() {
               <FaInstagram />
             </a>
           </nav>
-          <nav className='hero-images'>
+          <motion.nav 
+            className='hero-images'
+            initial={{ scale: 0 }} 
+            animate={{ scale: 1 }} 
+            transition={{ duration: 1 }}
+          >
             <img src={yellov} alt="Rasm" className='hero-img'/>
             <img src={e} alt="Rasm" className='hero-icons'/>
-          </nav>
+          </motion.nav>
         </div>
       </div>
 
@@ -158,7 +181,7 @@ function Hero() {
           </Select>
         </div>
       </Modal>
-    </div>
+    </motion.div>
   );
 }
 
